@@ -1,0 +1,76 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.modal-box {
+    background: white;
+    padding: 20px;
+    width: 350px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+}
+  
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+.logo-container img {
+    width: 100px;
+    cursor: pointer;
+}
+  
+.signup-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+  
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+  
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+  
+.login-prompt {
+    margin-top: 15px;
+}
+  
+.login-link {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.login-link:hover {
+    font-weight: 700;
+    text-decoration: underline; /* Underline the LOGIN text on hover */
+}
+  
+.terms-text {
+    font-size: 12px;
+    margin-top: 10px;
+}
+  

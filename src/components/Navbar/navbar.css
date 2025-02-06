@@ -1,0 +1,129 @@
+.top-bar {
+    background-color: #143D06; 
+    width: 100%;
+    height: 50px;            
+    display: flex;
+    align-items: center;    
+    top: 0; 
+    justify-content: center; 
+}
+.text-content {
+    color: white;             
+    font-family: 'Bai Jamjuree', sans-serif; 
+    font-size: 18px;  
+    font-weight: 500;       
+}
+.login-page {
+    color: white; 
+    font-weight: 500;
+    font-family: 'Bai Jamjuree';         
+    cursor: pointer;         
+}
+
+.login-page:hover {
+    font-weight: 700;
+    text-decoration: underline; /* Underline the LOGIN text on hover */
+}
+
+/* Basic styling for the Navbar */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff; /* Adjust to match page's background color */
+    padding: 2px;
+    margin-top: 5px;
+    width: 100%;
+}
+  
+.logo img {
+    height: 70px;
+    margin-top: 5px;
+    margin-right: 1000px;
+}
+
+.description {
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 20px;
+    margin-top: -60px;
+    margin-right: 500px;
+    color: #143D06;
+    font-weight: 500;
+}
+  
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    width: 30%;
+    gap: 40px;
+    font-size: 15px;
+    font-family: 'Bai Jamjuree';
+    font-weight: 500;
+    color: black;
+    margin-top: -45px;
+    margin-left: 620px;
+}
+
+/* Style for Navigation Links */
+.nav-links span {
+    position: relative; /*Needed for the underline effect */
+    font-size: 18px;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Underline Effect on Hover */
+.nav-links span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px; /* Adjusts spacing between text and line */
+    width: 100%;
+    height: 3px; /* Thickness of the underline */
+    background-color: #143D06; /* Green shade */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform;
+}
+
+/* Show underline when hovered */
+.nav-links span:hover::after {
+    transform: scaleX(1); /* Expands fully */
+}
+
+/* Keep underline for active tab */
+.nav-links .active::after {
+    transform: scaleX(1);
+}
+
+.search{
+    height: 25px; /* Keep it proportional */
+    cursor: pointer; 
+    margin-left: 1110px;
+    margin-top: -25px;
+    background: none;
+    border:none;
+    transition: transform 0.3s ease; /* Smooth transition for magnifying */
+}
+
+.search:hover {
+    transform: scale(1.2); /* Magnifies the search button */
+}
+    
+.search img{
+    height: 25px;
+    width: auto;
+    background: none;
+    border: none;
+}
+
+
+  
+  
+
+
+
+
+
