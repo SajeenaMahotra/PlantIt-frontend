@@ -45,7 +45,7 @@
 .description {
     font-family: 'Bai Jamjuree', sans-serif;
     font-size: 20px;
-    margin-top: -60px;
+    margin-top: -30px;
     margin-right: 500px;
     color: #143D06;
     font-weight: 500;
@@ -119,11 +119,45 @@
     border: none;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Keep top bar as it is */
+    
+    /* Center the logo below the top bar */
+    .logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
 
-  
-  
+    .logo img {
+        height: 60px; /* Adjust size for smaller screens */
+        margin: 0; /* Remove unnecessary margin */
+    }
 
+    /* Center navigation links in a single horizontal row */
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Reduce gap for smaller screens */
+        font-size: 14px; /* Adjust font size */
+        margin: 10px 0; /* Adjust margin */
+    }
 
+    /* Adjust description text */
+    .description {
+        font-size: 16px; /* Reduce font size */
+        text-align: center; /* Center align text */
+        margin: 5px 0; /* Adjust spacing */
+    }
 
-
+    /* Adjust search icon */
+    .search {
+        margin: 5px auto; /* Center search icon */
+        display: flex;
+        justify-content: center;
+    }
+}
 

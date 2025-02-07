@@ -1,0 +1,96 @@
+/* Dashboard Container */
+.editor-dashboard {
+    position: relative;
+    background-color: #ECF4E9;
+    padding: 20px;
+}
+  
+  /* Top Bar (Holds Logo & Menu Icon) */
+.image-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center logo */
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+  
+  /* PlantIt Logo at the Top Center */
+.logo {
+    height: 50px;
+}
+  
+  /* Menu Icon at Top Right */
+.menu-icon {
+    position: absolute;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+}
+  
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+  
+  /* Sidebar Menu */
+.menu {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 150px;
+}
+  
+.menu span {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+  
+.menu span:hover {
+    background: #143D06;
+    color: white;
+    border-radius: 3px;
+}
+
+.floating-plus {
+    position: fixed; /* Keeps it in place when scrolling */
+    right: 20px; /* 20px from the right edge */
+    bottom: 50px; /* 20px from the bottom edge */
+    background-color: #143D06; /* Green background */
+    color: white; 
+    padding: 15px; /* Size of the button */
+    font-size: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+  
+.floating-plus:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+  
+  /* Main Content */
+.content {
+    margin-top: 80px;
+    text-align: center;
+}
+  
+.content h1 {
+    font-size: 24px;
+    color: #143D06;
+}
+  
+.content p {
+    font-size: 18px;
+    color: #555;
+}
+  
