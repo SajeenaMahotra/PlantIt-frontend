@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './Login.css';
 import Signup from '../Signup/signup';
-import axiosInstance from '../../api/axios'; // Import axiosInstance
+import axiosInstance from '../../api/axios'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('user'); // NEW: Track login type (User/Editor)
-  const [showSignup, setShowSignup] = useState(false); // Manage signup modal state
-  const navigate = useNavigate(); // Initialize navigate
+  const [userType, setUserType] = useState('user'); 
+  const [showSignup, setShowSignup] = useState(false); 
+  const navigate = useNavigate(); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Determine login endpoint based on userType
+      
       const endpoint = userType === 'editor' ? '/editors/login' : '/users/login';
       
       const response = await axiosInstance.post(endpoint, {
@@ -23,17 +23,14 @@ const Login = () => {
         role:userType
       });
 
-      // Assuming the backend returns a token and a role
       const { token, role } = response.data;
 
-      // Store the token in localStorage
       localStorage.setItem('token', token);
 
-      // Redirect based on the role
       if (role === 'editor') {
-        navigate('/editordashboard'); // Redirect to editor dashboard
+        navigate('/editordashboard'); 
       } else {
-        navigate('/'); // Redirect to home page for regular users
+        navigate('/'); 
       }
     } catch (error) {
       console.error('Login failed:', error);

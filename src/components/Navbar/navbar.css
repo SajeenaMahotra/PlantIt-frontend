@@ -22,15 +22,15 @@
 
 .login-page:hover {
     font-weight: 700;
-    text-decoration: underline; /* Underline the LOGIN text on hover */
+    text-decoration: underline; 
 }
 
-/* Basic styling for the Navbar */
+
 .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff; /* Adjust to match page's background color */
+    background-color: #fff; 
     padding: 2px;
     margin-top: 5px;
     width: 100%;
@@ -51,7 +51,7 @@
     font-weight: 500;
 }
   
-/* Navigation Links */
+
 .nav-links {
     display: flex;
     width: 30%;
@@ -64,9 +64,9 @@
     margin-left: 620px;
 }
 
-/* Style for Navigation Links */
+
 .nav-links span {
-    position: relative; /*Needed for the underline effect */
+    position: relative;
     font-size: 18px;
     font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 500;
@@ -75,41 +75,40 @@
     transition: color 0.3s;
 }
 
-/* Underline Effect on Hover */
+
 .nav-links span::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -20px; /* Adjusts spacing between text and line */
-    width: 100%;
-    height: 3px; /* Thickness of the underline */
-    background-color: #143D06; /* Green shade */
-    transform: scaleX(0); /* Initially hidden */
+    bottom: -20px; 
+    height: 3px;
+    background-color: #143D06; 
+    transform: scaleX(0); 
     transition: transform;
 }
 
-/* Show underline when hovered */
+
 .nav-links span:hover::after {
-    transform: scaleX(1); /* Expands fully */
+    transform: scaleX(1); 
 }
 
-/* Keep underline for active tab */
+
 .nav-links .active::after {
     transform: scaleX(1);
 }
 
 .search{
-    height: 25px; /* Keep it proportional */
+    height: 25px; 
     cursor: pointer; 
     margin-left: 1110px;
     margin-top: -25px;
     background: none;
     border:none;
-    transition: transform 0.3s ease; /* Smooth transition for magnifying */
+    transition: transform 0.3s ease; 
 }
 
 .search:hover {
-    transform: scale(1.2); /* Magnifies the search button */
+    transform: scale(1.2); 
 }
     
 .search img{
@@ -119,11 +118,9 @@
     border: none;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
-    /* Keep top bar as it is */
     
-    /* Center the logo below the top bar */
     .logo {
         display: flex;
         justify-content: center;
@@ -132,30 +129,30 @@
     }
 
     .logo img {
-        height: 60px; /* Adjust size for smaller screens */
-        margin: 0; /* Remove unnecessary margin */
+        height: 60px;
+        margin: 0; 
     }
 
-    /* Center navigation links in a single horizontal row */
+    
     .nav-links {
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 20px; /* Reduce gap for smaller screens */
-        font-size: 14px; /* Adjust font size */
-        margin: 10px 0; /* Adjust margin */
+        gap: 20px; 
+        font-size: 14px; 
+        margin: 10px 0; 
     }
 
-    /* Adjust description text */
+  
     .description {
-        font-size: 16px; /* Reduce font size */
-        text-align: center; /* Center align text */
-        margin: 5px 0; /* Adjust spacing */
+        font-size: 16px; 
+        text-align: center;
+        margin: 5px 0; 
     }
 
-    /* Adjust search icon */
+    
     .search {
-        margin: 5px auto; /* Center search icon */
+        margin: 5px auto; 
         display: flex;
         justify-content: center;
     }

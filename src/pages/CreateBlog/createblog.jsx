@@ -17,7 +17,6 @@ const CreateBlog = () => {
 
   return (
     <div className="create-blog">
-      {/* Top Bar with Logo and Menu Icon */}
       <div className="logoimage-bar">
       <div className="menu-img" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
@@ -26,7 +25,7 @@ const CreateBlog = () => {
         
       </div>
 
-      {/* Sidebar Menu */}
+      
       {menuOpen && (
         <div className="menu">
           <span>Home</span>
@@ -36,10 +35,8 @@ const CreateBlog = () => {
           
         </div>
       )}
-
-      {/* Blog Form */}
+      
       <div className="blog-container">
-        {/* Left Side - Image Upload */}
         <div className="image-upload-box">
           {image ? (
             <img src={image} alt="Uploaded" className="uploaded-image" />
@@ -54,13 +51,12 @@ const CreateBlog = () => {
           </p>
         </div>
 
-        {/* Right Side - Blog Details */}
+        
         <div className="blog-details">
           <input type="text" placeholder="Blog Title" className="blog-input" />
           <textarea placeholder="Short Description" className="blog-textarea"></textarea>
           <textarea placeholder="Write your content here..." className="blog-content"></textarea>
 
-          {/* Buttons */}
           <div className="button-group">
             <button className="publish-btn">Publish</button>
             <button className="cancel-btn" onClick={() => navigate(-1)}>Cancel</button>

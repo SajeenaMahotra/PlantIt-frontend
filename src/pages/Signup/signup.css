@@ -66,7 +66,7 @@ input {
 
 .login-link:hover {
     font-weight: 700;
-    text-decoration: underline; /* Underline the LOGIN text on hover */
+    text-decoration: underline; 
 }
   
 .terms-text {

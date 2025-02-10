@@ -21,7 +21,6 @@ const Signup = ({ onClose }) => {
       <div className="modal-box">
         <span className="close-icon" onClick={onClose}>&times;</span>
 
-        {/* Logo - Clicking navigates to Home */}
         <div className="logo-container">
           <img src={plantitLogo} alt="PlantIt Logo" className="plantit-logo" onClick={() => navigate("/")} />
         </div>

@@ -1,4 +1,4 @@
-/* Define the global font family */
+
 * {
     font-family: 'Bai Jamjuree', sans-serif;
 }
@@ -13,7 +13,7 @@
 }
 
 .plantit-logo {
-    width: 120px; /* Adjust size as needed */
+    width: 120px; 
     height: auto;
     cursor: pointer;
 }
@@ -26,7 +26,7 @@
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visual effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .login-title {
@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-/* Styling for the input fields */
+
 .input-container {
     margin-bottom: 20px;
     width: 100%;
@@ -63,7 +63,7 @@
     text-align: center;
 }
 
-/* Styling for the signup prompt */
+
 .signup-prompt {
     margin-top: 10px;
     font-size: 16px;
@@ -82,7 +82,7 @@
     text-decoration: underline;
 }
 
-/* Styling for the login button */
+
 .login-btn {
     width: 100%;
     padding: 12px;
