@@ -32,7 +32,7 @@ const Navbar = () => {
         <span className={currentPath === "/home" ? "active" : ""} onClick={() => handleNavigation("/")}>Home</span>
         <span className={currentPath === "/learn" ? "active" : ""} onClick={() => handleNavigation("/learn")}>Learn</span>
         <span className={currentPath === "/blog" ? "active" : ""} onClick={() => handleNavigation("/blog")}>Blog</span>
-        <span className={currentPath === "/profile" ? "active" : ""} onClick={() => handleNavigation("/profile")}>Profile</span>
+        
         {/* Smooth Scroll for About */}
         {location.pathname === "/" ? (
           <ScrollLink to="about-section" smooth={true} duration={800} className="nav-link">
@@ -43,6 +43,7 @@ const Navbar = () => {
             About
           </NavLink>
         )}
+        <span className={currentPath === "/profile" ? "active" : ""} onClick={() => handleNavigation("/profile")}>Profile</span>
       </div>
       <button className="search">
         <img src="/src/assets/search.png" alt="Search" />
