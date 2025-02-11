@@ -5,14 +5,14 @@ import './navbar.css';
 
 
 
-const Navbar = ({ setShowSignup }) => {
+const Navbar = ({ setShowSignup, isLoggedIn, setIsLoggedIn }) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const navigate = useNavigate();
   
 
   const handleNavigation = (path) => {
-    if (path === "/learn" || path === "/blog" || path === "/profile" || path ==="/search" ) {
+    if ( !isLoggedIn && (path === "/learn" || path === "/blog" || path === "/profile" || path ==="/search" )) {
       setShowSignup(true); // Show Signup modal instead of navigating
     } else if (location.pathname === path) {
       window.location.reload(); // Reload if already on the same page

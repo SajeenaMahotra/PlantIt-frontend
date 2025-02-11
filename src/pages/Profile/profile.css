@@ -1,0 +1,26 @@
+.profile-container {
+    padding: 20px;
+    text-align: center;
+}
+  
+.profile-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+  /* Logout Button */
+.logout-btn {
+    border: 2px solid red;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+  
+.logout-btn:hover {
+    background-color: red;
+    color: white;
+}
+  
