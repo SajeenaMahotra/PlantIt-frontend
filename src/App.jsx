@@ -10,7 +10,8 @@ import Footer from "./components/Footer/footer";
 import Signup from './pages/Signup/signup';
 
 function App() {
-  const [showSignup, setShowSignup] = useState(false); // State to control Signup modal
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showSignup, setShowSignup] = useState(false); 
   return (
     <Router>
       {showSignup && <Signup onClose={() => setShowSignup(false)} />} {/* Show Signup if triggered */}
