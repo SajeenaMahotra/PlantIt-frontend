@@ -82,6 +82,7 @@
     left: 0;
     bottom: -20px; 
     height: 3px;
+    width: 100%; /* Ensure the underline covers the whole text */
     background-color: #143D06; 
     transform: scaleX(0); 
     transition: transform;

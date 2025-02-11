@@ -1,17 +1,22 @@
 import React from 'react';
 import { NavLink,useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink} from 'react-scroll';
+import Signup from '../../pages/Signup/signup';
 import './navbar.css';
 
-const Navbar = () => {
+
+
+const Navbar = ({ setShowSignup }) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const navigate = useNavigate();
+  
 
   const handleNavigation = (path) => {
-    if (location.pathname === path) {
-      // Reload the page if already on the same route
-      window.location.reload();
+    if (path === "/learn" || path === "/blog" || path === "/profile" ) {
+      setShowSignup(true); // Show Signup modal instead of navigating
+    } else if (location.pathname === path) {
+      window.location.reload(); // Reload if already on the same page
     } else {
       navigate(path);
     }
@@ -30,9 +35,8 @@ const Navbar = () => {
       <div className='description'><p>-Sow Dreams, Harvest Beauty</p> </div>
       <div className="nav-links">
         <span className={currentPath === "/home" ? "active" : ""} onClick={() => handleNavigation("/")}>Home</span>
-        <span className={currentPath === "/learn" ? "active" : ""} onClick={() => handleNavigation("/learn")}>Learn</span>
+        <span className={currentPath === "/learn" ? "active" : ""} onClick={() => handleNavigation("/learn")} >Learn</span>
         <span className={currentPath === "/blog" ? "active" : ""} onClick={() => handleNavigation("/blog")}>Blog</span>
-        
         {/* Smooth Scroll for About */}
         {location.pathname === "/" ? (
           <ScrollLink to="about-section" smooth={true} duration={800} className="nav-link">
@@ -49,6 +53,7 @@ const Navbar = () => {
         <img src="/src/assets/search.png" alt="Search" />
       </button>  
     </div>
+   
   );
 }
 
