@@ -20,7 +20,7 @@ const Home = ({ isLoggedIn, setShowSignup }) => {
           <img src="/src/assets/plantcare.png" alt="Plant Care" className="box-image" />
           <div className="box-overlay">Planting Guides</div>
         </div>
-        <div className="box" onClick={() => handleBoxClick("/plantofthemonth")}>
+        <div className="box" >
           <img src="/src/assets/image2.jpg" alt="Plant Of the Month" className="box-image" />
           <div className="box-overlay">Plant of the Month</div>
         </div>

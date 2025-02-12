@@ -13,9 +13,20 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate(); 
 
+  // Handle user role selection
+  const handleUserTypeChange = (e) => {
+    const selectedRole = e.target.value;
+    setUserType(selectedRole);
+
+    if (selectedRole === 'editor') {
+      setRememberMe(false);
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); // Clear previous errors
+    setErrorMessage(""); 
+    
     try {
       const endpoint = userType === 'editor' ? '/editors/login' : '/users/login';
       const response = await axiosInstance.post(endpoint, {
@@ -23,16 +34,26 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
         password,
         role:userType
       });
-      const { token, role } = response.data;
       
-      // Store token in localStorage or sessionStorage based on Remember Me
-      if (rememberMe) {
+      const { token, role, userId } = response.data;
+      
+
+      if (role === 'editor') {
+        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("role", role);
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+      } else if (rememberMe) {
         localStorage.setItem("token", token);
-        localStorage.setItem("role", role); // Persist token across sessions
+        localStorage.setItem("role", role); 
+        localStorage.setItem("userId", userId);
       } else {
         sessionStorage.setItem("token", token);
-        sessionStorage.setItem("role", role);  // Only persist until the browser is closed
+        sessionStorage.setItem("role", role);   
+        sessionStorage.setItem("userId", userId); 
       }
+      console.log("User ID received:", userId);
+
 
       console.log("Role received in Login:", role);
       console.log("setUserRole function:", setUserRole);
@@ -54,11 +75,17 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
   return (
     <div className="login-container">
       <div className="login-section">
-        {/* PlantIt Logo Above LOGIN Text */}
+       
         <div className="logo-container">
           <img src="/src/assets/plantitlogo.png" alt="PlantIt Logo" className="plantit-logo" onClick={() => navigate("/")}/>
         </div>
         <h2 className="login-title">Login</h2>
+       
+        {userType === 'editor' && (
+            <p className="warning-message">
+              * Editors cannot use "Remember Me" due to security and privacy policies.
+            </p>
+          )}
 
         {errorMessage && <p className="error-message">{errorMessage} * </p>}
 
@@ -84,7 +111,7 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
             />
           </div>
 
-          {/* Dropdown for selecting User or Editor Login */}
+          
           <div className="input-container">
             
             <select
@@ -96,12 +123,13 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
             </select>
           </div>
 
-          {/* Remember Me Checkbox */}
+         
           <div className="remember-me-container">
             <input
               type="checkbox"
               checked={rememberMe}
               onChange={() => setRememberMe(!rememberMe)} 
+              disabled={userType === 'editor'} 
             />
             <label>Remember Me</label>
           </div>

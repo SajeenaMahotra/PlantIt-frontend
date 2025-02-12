@@ -10,11 +10,14 @@ const Signup = ({ onClose }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); 
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
     setErrorMessage("");
+    setSuccessMessage(""); 
+
     if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match");
       return;
@@ -28,9 +31,19 @@ const Signup = ({ onClose }) => {
       });
   
       console.log("User registered:", response.data);
-      setErrorMessage(""); 
-      onClose();
-      navigate("/login");
+      setSuccessMessage("Account created successfully!"); 
+
+      setFullName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      setTimeout(() => {
+        onClose();
+        navigate("/login");
+      }, 1000); // Redirect after 2 seconds
+      
+
     } catch (error) {
       console.error("Registration error:", error.response ? error.response.data.message : error.message);
       setErrorMessage(error.response?.data?.message || "An error occurred during registration.");
@@ -47,9 +60,9 @@ const Signup = ({ onClose }) => {
         </div>
 
         <h2 className="signup-title">Signup</h2>
-
+        {successMessage && <p className="success-message">{successMessage}</p>} 
         {errorMessage && <p className="error-message">{errorMessage} * </p>} 
-
+        
         <form onSubmit={handleSignup}>
           <input type="text" placeholder="Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />

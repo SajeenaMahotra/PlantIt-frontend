@@ -20,6 +20,17 @@ const Navbar = ({ setShowSignup, isLoggedIn, setIsLoggedIn }) => {
       navigate(path);
     }
   };
+
+  const handleAboutClick = () => {
+    if (location.pathname !== '/') {
+      // Navigate to the homepage
+      navigate('/');
+      setTimeout(() => {
+        // Delay scrolling to allow navigation to complete
+        document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
+      }, 100); // Delay to ensure the page load completes before scrolling
+    }
+  };
   
   return (
     <div className="navbar">
@@ -37,9 +48,9 @@ const Navbar = ({ setShowSignup, isLoggedIn, setIsLoggedIn }) => {
             <span>About</span>
           </ScrollLink>
         ) : (
-          <NavLink to="/" className="nav-link" onClick={() => navigate("/")}>
+          <span className="nav-link" onClick={handleAboutClick}>
             About
-          </NavLink>
+          </span>
         )}
         <span className={currentPath === "/profile" ? "active" : ""} onClick={() => handleNavigation("/profile")}>Profile</span>
       </div>

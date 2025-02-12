@@ -82,6 +82,20 @@
     text-decoration: underline;
 }
 
+.warning-message {
+    color: #d9534f; /* Red color for warning */
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #f8d7da; /* Light red background */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d9534f;
+    display: block;
+    margin-bottom: 15px;
+}
+
 
 .login-btn {
     width: 100%;

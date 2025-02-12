@@ -10,12 +10,14 @@ import Footer from "./components/Footer/footer";
 import Signup from './pages/Signup/signup';
 import TopBar from './components/Navbar/topbar';
 import Profile from './pages/Profile/profile';
+import UserProfile from './pages/UserProfile/userprofile';
+
 
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSignup, setShowSignup] = useState(false); 
-  const [userRole, setUserRole] = useState(null); // Add role state here
+  const [userRole, setUserRole] = useState(null); 
 
 
   useEffect(() => {
@@ -39,12 +41,11 @@ function App() {
       <Route path="/createblog" element={<CreateBlog />} />
       <Route path="/login" element={<><Login  setIsLoggedIn={setIsLoggedIn}  setUserRole={setUserRole} /> <Footer /></>} />
       <Route path="/signup" element={<><Signup onClose={() => setShowSignup(false)} /><Footer /></>} />
-      <Route path="/profile" element={<Profile setIsLoggedIn={setIsLoggedIn} />} 
-        />
-
+      <Route path="/profile" element={<><Navbar/><Profile setIsLoggedIn={setIsLoggedIn} /></>} />
+      <Route path="/userprofile" element={<><Navbar/><UserProfile /></>} /> 
       </Routes>
     </Router>  
   );
 }
 
-export default App
+export default App;
