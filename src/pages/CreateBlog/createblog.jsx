@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./createblog.css";
-import logo from "../../assets/plantitlogo.png";
 
 const CreateBlog = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [image, setImage] = useState(null);
-  const navigate = useNavigate();
+  
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -14,28 +11,8 @@ const CreateBlog = () => {
       setImage(URL.createObjectURL(file));
     }
   };
-
   return (
     <div className="create-blog">
-      <div className="logoimage-bar">
-      <div className="menu-img" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
-        </div>
-        <img src={logo} alt="PlantIt Logo" className="imglogo" onClick={() => navigate(-1)}/>
-        
-      </div>
-
-      
-      {menuOpen && (
-        <div className="menu">
-          <span>Home</span>
-          <span>Your Blog</span>
-          <span>Drafts</span>
-          <span>Profile</span>
-          
-        </div>
-      )}
-      
       <div className="blog-container">
         <div className="image-upload-box">
           {image ? (
@@ -57,9 +34,12 @@ const CreateBlog = () => {
           <textarea placeholder="Short Description" className="blog-textarea"></textarea>
           <textarea placeholder="Write your content here..." className="blog-content"></textarea>
 
-          <div className="button-group">
+          <input type="text" placeholder="Category" className="blog-input"/>
+          <input type="text" placeholder="Tags (separated by commas)" className="blog-input"/>
+            
+            <div className="button-group">
             <button className="publish-btn">Publish</button>
-            <button className="cancel-btn" onClick={() => navigate(-1)}>Cancel</button>
+            <button className="cancel-btn">Cancel</button>
             <button className="draft-btn">Save as Draft</button>
           </div>
         </div>

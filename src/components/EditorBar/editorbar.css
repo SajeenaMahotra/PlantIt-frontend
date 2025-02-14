@@ -1,0 +1,51 @@
+.logoimage-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    background: #ECF4E9;
+    position: relative;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+.menu-img {
+    position: absolute;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.imglogo {
+    height: 40px;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 999; /* Keeps menu above other elements */
+}
+
+.menu span {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu span:hover {
+    background: #143D06;
+    color: white;
+    border-radius: 3px;
+}

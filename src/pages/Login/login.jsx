@@ -4,7 +4,7 @@ import './Login.css';
 import Signup from '../Signup/signup';
 import axiosInstance from '../../api/axios'; 
 
-const Login = ({ setIsLoggedIn, setUserRole  }) => {
+const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('user'); 
@@ -35,26 +35,33 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
         role:userType
       });
       
-      const { token, role, userId } = response.data;
-      
-
+      const { token, role, userId ,editorId } = response.data;
+    
       if (role === 'editor') {
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("role", role);
+        sessionStorage.setItem("editorId", editorId);
+        sessionStorage.removeItem("userId");
         localStorage.removeItem("token");
         localStorage.removeItem("role");
-      } else if (rememberMe) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("role", role); 
-        localStorage.setItem("userId", userId);
       } else {
-        sessionStorage.setItem("token", token);
-        sessionStorage.setItem("role", role);   
-        sessionStorage.setItem("userId", userId); 
+        if (userId) {
+          if (rememberMe) {
+            localStorage.setItem("token", token);
+            localStorage.setItem("role", role); 
+            localStorage.setItem("userId", userId);
+          }else {
+          sessionStorage.setItem("token", token);
+          sessionStorage.setItem("role", role);   
+          sessionStorage.setItem("userId", userId); 
+          sessionStorage.removeItem("editorId");
+        }
+      }else{
+        console.log("User ID is missing in the response");
       }
+    }
       console.log("User ID received:", userId);
-
-
+      console.log("Editor ID received:", editorId);
       console.log("Role received in Login:", role);
       console.log("setUserRole function:", setUserRole);
       setUserRole(role);
@@ -69,6 +76,7 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
       console.log("Login Error:", error.response ? error.response.data : error.message);
       setErrorMessage(error.response?.data?.message || "Invalid email or password.");
     }
+  
     
   };
 
@@ -77,7 +85,7 @@ const Login = ({ setIsLoggedIn, setUserRole  }) => {
       <div className="login-section">
        
         <div className="logo-container">
-          <img src="/src/assets/plantitlogo.png" alt="PlantIt Logo" className="plantit-logo" onClick={() => navigate("/")}/>
+          <img src="/src/assets/plantitlogo.png" alt="PlantIt Logo" className="plantit-logo" onClick={() => {if (!isLoggedIn) {navigate("/"); }}}/>
         </div>
         <h2 className="login-title">Login</h2>
        

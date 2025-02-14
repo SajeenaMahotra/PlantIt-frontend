@@ -5,7 +5,7 @@ import './navbar.css';
 
 
 
-const Navbar = ({ setShowSignup, isLoggedIn, setIsLoggedIn }) => {
+const Navbar = ({ setShowSignup, isLoggedIn }) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const navigate = useNavigate();
