@@ -3,8 +3,6 @@ import { NavLink,useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink} from 'react-scroll';
 import './navbar.css';
 
-
-
 const Navbar = ({ setShowSignup, isLoggedIn }) => {
   const location = useLocation();
   const currentPath = location.pathname;
