@@ -16,9 +16,9 @@ const Home = ({ isLoggedIn, setShowSignup }) => {
   return (
     <div className="home">
       <div className="box-container">
-        <div className="box" onClick={() => handleBoxClick("/learn")}>
+        <div className="box" onClick={() => handleBoxClick("/search")}>
           <img src="/src/assets/plantcare.png" alt="Plant Care" className="box-image" />
-          <div className="box-overlay">Planting Guides</div>
+          <div className="box-overlay">Browse Plants</div>
         </div>
         <div className="box" >
           <img src="/src/assets/image2.jpg" alt="Plant Of the Month" className="box-image" />

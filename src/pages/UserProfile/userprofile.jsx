@@ -80,7 +80,7 @@ const UserProfile = () => {
             )}
       </div>
       <button className="button-update"  onClick={handleUpdateProfile}>Update</button>
-      <button className="button-update">Change</button>
+      <button className="button-update">Change Password</button>
     </div>
   );
 };

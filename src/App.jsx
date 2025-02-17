@@ -13,6 +13,11 @@ import TopBar from './components/Navbar/topbar';
 import Profile from './pages/Profile/profile';
 import UserProfile from './pages/UserProfile/userprofile';
 import EditorProfile from './pages/EditorProfile/editorprofile'
+import Blog from './pages/Blog/blog';
+import Search from './pages/Search/search';
+import BlogDetail from './pages/BlogDetail/blogdetail';
+import YourBlogs from './pages/YourBlog/yourblog'
+import UpdateBlog from './pages/UpdateBlog/updateblog';
 
 
 function App() {
@@ -49,9 +54,14 @@ function App() {
       <Route path="/login" element={<><Login setIsLoggedIn={setIsLoggedIn}  setUserRole={setUserRole} /> <Footer /></>} />
       <Route path="/signup" element={<><Signup onClose={() => setShowSignup(false)} /><Footer /></>} />
       <Route path="/profile" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Profile setIsLoggedIn={setIsLoggedIn} /></>} />
+      <Route path="/blog" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Blog setIsLoggedIn={setIsLoggedIn} /></>} />
+      <Route path="/blog/:id" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><BlogDetail setIsLoggedIn={setIsLoggedIn} /><Footer /></>} />
+      <Route path="/search" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Search setIsLoggedIn={setIsLoggedIn} /></>} />
       <Route path="/userprofile" element={<><Navbar/><UserProfile /></>} /> 
       <Route path="/editordashboard" element={<><EditorBar /><EditorDashboard /></>} />
       <Route path="/createblog" element={<><EditorBar /><CreateBlog /></>} />
+      <Route path="/your-blog" element={<><EditorBar /><YourBlogs /></>} />
+      <Route path="/update-blog/:id" element={<><EditorBar /><UpdateBlog /></>} />
       <Route path="/editorprofile" element={<><EditorBar /><EditorProfile setIsLoggedIn={setIsLoggedIn}   handleLogout={handleLogout}/></>} />
       
       

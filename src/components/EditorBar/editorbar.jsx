@@ -24,7 +24,7 @@ const EditorBar = () => {
       {menuOpen && (
         <div className="menu">
           <span onClick={() => handleNavigation("/editordashboard")}>Home</span>
-          <span onClick={() => handleNavigation("/your-blog")}>Your Blog</span>
+          <span onClick={() => handleNavigation("/your-blog")}>Your Blogs</span>
           <span onClick={() => handleNavigation("/drafts")}>Drafts</span>
           <span onClick={() => handleProfileClick("/profile")}>Profile</span>
         </div>

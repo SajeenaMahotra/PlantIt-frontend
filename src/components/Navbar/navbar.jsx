@@ -38,7 +38,6 @@ const Navbar = ({ setShowSignup, isLoggedIn }) => {
       <div className='description'><p>-Sow Dreams, Harvest Beauty</p> </div>
       <div className="nav-links">
         <span className={currentPath === "/home" ? "active" : ""} onClick={() => handleNavigation("/")}>Home</span>
-        <span className={currentPath === "/learn" ? "active" : ""} onClick={() => handleNavigation("/learn")} >Learn</span>
         <span className={currentPath === "/blog" ? "active" : ""} onClick={() => handleNavigation("/blog")}>Blog</span>
         {/* Smooth Scroll for About */}
         {location.pathname === "/" ? (

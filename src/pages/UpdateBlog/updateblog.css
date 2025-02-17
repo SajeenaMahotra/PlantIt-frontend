@@ -1,0 +1,80 @@
+/* Update Blog Page Styles */
+.update-blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Upload Section */
+.update-blog-image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.update-blog-image-preview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Input Fields */
+.update-blog-input, 
+.update-blog-textarea, 
+.update-blog-content {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.update-blog-textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.update-blog-content {
+    height: 200px;
+    resize: vertical;
+}
+
+/* Update Button */
+.update-blog-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.update-blog-btn:hover {
+    background-color: #45a049;
+}
+
+/* Confirmation Dialog */
+.update-blog-confirmation {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 15px;
+}

@@ -1,0 +1,46 @@
+.editor-blog-card {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+   margin-left: auto;
+   margin-right: auto;
+}
+  
+.editor-blog-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+  
+.editor-blog-content {
+    flex-grow: 1;
+}
+  
+.editor-blog-actions {
+    margin-top: 10px;
+}
+  
+.editor-update-btn, .editor-delete-btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+}
+  
+.editor-update-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+  
+.editor-delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+  
