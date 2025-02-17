@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./EditorProfile.css"; 
+import "./editorprofile.css"; 
 const EditorProfile = ({ setIsLoggedIn, handleLogout }) => {
   const navigate = useNavigate();
   const [editorData, setEditorData] = useState({

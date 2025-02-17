@@ -1,0 +1,30 @@
+/* DraftsPage.css */
+.drafts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    background-color: #ffffff;
+    height:auto;
+}
+
+.drafts-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.drafts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.no-drafts {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+}

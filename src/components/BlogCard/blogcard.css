@@ -25,11 +25,12 @@
 
 .blog-card-container .blog-meta {
     font-size: 12px;
+    margin-top: auto;
     color: #666;
 }
 
 .blog-card-container .blog-title {
-    font-size: 15px;
+    font-size: 10px;
     font-weight: bold;
     color: black;
 }
@@ -47,3 +48,24 @@
     align-self: flex-end;
     margin-right: 10px;
 }
+
+.save-blog-btn {
+    background-color: #e14545;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    align-self: flex-start;
+    position: relative;
+  }
+  
+  .save-blog-btn.saved {
+    background-color: #77d370;
+    cursor: not-allowed;
+  }
+  
+  .save-blog-btn:hover {
+    background-color: #77d370;
+  }
+  

@@ -53,9 +53,16 @@
     resize: vertical;
 }
 
-/* Update Button */
-.update-blog-btn {
+/* Update & Cancel Buttons */
+.update-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
     width: 100%;
+}
+
+.update-blog-btn {
+    flex: 1;
     padding: 12px;
     background-color: #4CAF50;
     color: white;
@@ -68,6 +75,23 @@
 
 .update-blog-btn:hover {
     background-color: #45a049;
+}
+
+/* Cancel Button */
+.cancel-blog-btn {
+    flex: 1;
+    padding: 12px;
+    background-color: #d9534f;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cancel-blog-btn:hover {
+    background-color: #c9302c;
 }
 
 /* Confirmation Dialog */

@@ -108,5 +108,12 @@
     font-size: 14px;
 }
 
+.quill-editor {
+    height: 400px; 
+    width: 500px;  
+    margin-bottom: 50px; 
+}
+  
+
 
   

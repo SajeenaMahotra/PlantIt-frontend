@@ -65,7 +65,7 @@ const UpdateBlog = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    const confirmUpdate = window.confirm("Do you want to update the blog?");
+    const confirmUpdate = window.confirm("Do you want to update the blog? As updating it will also publish it.");
     if (!confirmUpdate) return;
 
     const formData = new FormData();
@@ -104,6 +104,9 @@ const UpdateBlog = () => {
         alert("Error: " + (error.response?.data?.error || "Something went wrong"));
       }
     };
+    const handleCancel = () => {
+      navigate("/your-blog"); // Redirect to blog list
+    };
 
     return (
     <div className="create-blog">
@@ -129,6 +132,8 @@ const UpdateBlog = () => {
           {successMessage && (<div className="success-message">{successMessage}</div>)}
 
           <button className="update-blog-btn" onClick={handleUpdate}>Update Blog</button>
+          <button className="cancel-blog-btn" onClick={handleCancel}>Cancel </button>
+
         </div>
       </div>
     </div>

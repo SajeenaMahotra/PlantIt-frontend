@@ -18,6 +18,7 @@ import Search from './pages/Search/search';
 import BlogDetail from './pages/BlogDetail/blogdetail';
 import YourBlogs from './pages/YourBlog/yourblog'
 import UpdateBlog from './pages/UpdateBlog/updateblog';
+import DraftsPage from './pages/Drafts/yourdraft';
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
       <Route path="/editordashboard" element={<><EditorBar /><EditorDashboard /></>} />
       <Route path="/createblog" element={<><EditorBar /><CreateBlog /></>} />
       <Route path="/your-blog" element={<><EditorBar /><YourBlogs /></>} />
+      <Route path="/drafts" element={<><EditorBar /><DraftsPage /></>} />
       <Route path="/update-blog/:id" element={<><EditorBar /><UpdateBlog /></>} />
       <Route path="/editorprofile" element={<><EditorBar /><EditorProfile setIsLoggedIn={setIsLoggedIn}   handleLogout={handleLogout}/></>} />
       

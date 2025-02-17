@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./blogcard.css";
 
 const BlogCard = ({ id,image, title, date }) => {
+  
   return (
     <div className="blog-card-container">
       <div className="blog-card">
@@ -11,6 +12,7 @@ const BlogCard = ({ id,image, title, date }) => {
           <p className="blog-meta">By PlantIt. {date}</p>
           <h3 className="blog-title">{title}</h3>
           <Link to={`/blog/${id}`} className="read-more">Read More</Link> 
+          <button className="save-blog-btn">Save</button>
         </div>
       </div>
     </div>

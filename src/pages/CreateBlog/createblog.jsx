@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ReactQuill from "react-quill";  // Import ReactQuill
+import "react-quill/dist/quill.snow.css";
 import "./createblog.css";
 
 const CreateBlog = () => {
