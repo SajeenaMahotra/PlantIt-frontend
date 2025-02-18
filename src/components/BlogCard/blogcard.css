@@ -49,23 +49,28 @@
     margin-right: 10px;
 }
 
-.save-blog-btn {
-    background-color: #e14545;
+.save {
+    background-color: #d13030;
+    border-radius: 50px;
     color: white;
-    padding: 5px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
     align-self: flex-start;
-    position: relative;
-  }
-  
-  .save-blog-btn.saved {
-    background-color: #77d370;
-    cursor: not-allowed;
-  }
-  
-  .save-blog-btn:hover {
-    background-color: #77d370;
-  }
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.saved {
+    background-color: #3ee757;
+    border-radius: 50px;
+    align-self: flex-start;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
   

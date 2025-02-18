@@ -19,6 +19,7 @@ import BlogDetail from './pages/BlogDetail/blogdetail';
 import YourBlogs from './pages/YourBlog/yourblog'
 import UpdateBlog from './pages/UpdateBlog/updateblog';
 import DraftsPage from './pages/Drafts/yourdraft';
+import DraftUpdate from './pages/Drafts/draftupdate';
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
       <Route path="/your-blog" element={<><EditorBar /><YourBlogs /></>} />
       <Route path="/drafts" element={<><EditorBar /><DraftsPage /></>} />
       <Route path="/update-blog/:id" element={<><EditorBar /><UpdateBlog /></>} />
+      <Route path="/draftupdate/:id" element={<><EditorBar /><DraftUpdate /></>} />
       <Route path="/editorprofile" element={<><EditorBar /><EditorProfile setIsLoggedIn={setIsLoggedIn}   handleLogout={handleLogout}/></>} />
       
       

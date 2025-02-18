@@ -5,7 +5,9 @@ import "./blog.css";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const userId = sessionStorage.getItem("userId");
 
+  
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -19,7 +21,6 @@ const Blog = () => {
 
     fetchBlogs();
   }, []);
-
   return (
     <div className="blog-page">
       <div className="slogan">
@@ -40,6 +41,7 @@ const Blog = () => {
                   month: "short",
                   day: "numeric",
                 })}
+                userId={userId} 
               />
             ))}
           </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import EditorBlogCard from "../../components/EditorBlogCard/editorblogcard";  
+import DraftCard from "../Drafts/draftcard";  
 import "./yourdraft.css";  // Import CSS
 
 const DraftsPage = () => {
@@ -46,7 +46,7 @@ const DraftsPage = () => {
             {drafts.length > 0 ? (
                 <div className="drafts-list">
                     {drafts.map((draft) => (
-                        <EditorBlogCard key={draft.id} blog={draft} onDelete={handleDelete} />
+                        <DraftCard key={draft.id} blog={draft} onDelete={handleDelete} />
                     ))}
                 </div>
             ) : (
