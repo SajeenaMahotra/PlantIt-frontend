@@ -7,7 +7,6 @@ import BlogCard from "../../components/BlogCard/blogcard"
 const Profile = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
   const userId = sessionStorage.getItem("userId");
-
   const [savedBlogs, setSavedBlogs] = useState([]);
 
   useEffect(() => {
@@ -43,39 +42,35 @@ const Profile = ({ setIsLoggedIn }) => {
 
   return (
     <div className="profile-container">
-      <h1 className="profile-title">Welcome to your Profile </h1>
+      <h1 className="profile-title">Your PlantIt Profile </h1>
 
        {/* Display saved blogs */}
        <div className="saved-blogs-section">
         <h2>Saved Blogs</h2>
         <div className="saved-blogs-list">
-  {savedBlogs.length > 0 ? (
-    savedBlogs.map(blog => (
-      blog.Blog ? ( // Check if Blog exists before accessing its properties
-        <BlogCard 
-          key={blog.id} 
-          id={blog.blog_id} 
-          image={blog.Blog.image_path || "default_image.jpg"} // Use a fallback image
-          title={blog.Blog.title || "Untitled Blog"} 
-          date={blog.saved_at} 
-        />
-      ) : (
-        <p key={blog.id}>This blog entry is missing details.</p>
-      )
-    ))
-  ) : (
-    <p>No saved blogs yet.</p>
-  )}
-</div>
+          {savedBlogs.length > 0 ? (
+            savedBlogs.map(blog => (
+              blog.Blog ? ( 
+              <BlogCard 
+              key={blog.id} 
+              id={blog.blog_id} 
+              image={`http://localhost:5000${blog.Blog.image_path}`} // Use a fallback image
+              title={blog.Blog.title } 
+              date={blog.saved_at} 
+              userId={userId}
+              isSaved={true}/>
+            ) : (
+            <p key={blog.id}>This blog entry is missing details.</p>
+          )))
+        ) : (
+        <p>No saved blogs yet.</p>
+        )}
+        </div>
       </div>
-
-      {/* Edit Profile and Logout Buttons */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
       <button className="editprofile-btn" onClick={handleEditProfile}>Edit Profile</button>
-      
-      
-     
-    </div>
+      <div className="profile-floating-plus" onClick={() => navigate("/createblog")}>+</div>
+      </div>
   );
 };
 

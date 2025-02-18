@@ -9,7 +9,7 @@ const EditorDashboard = () => {
   return (
     <div className="editor-dashboard">
       {/* Floating Plus Button to navigate to Create Blog */}
-      <div className="floating-plus" onClick={() => navigate("/createblog")}>
+      <div className="editor-floating-plus" onClick={() => navigate("/createblog")}>
         +
       </div>
 

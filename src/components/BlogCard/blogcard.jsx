@@ -4,11 +4,9 @@ import axios from "axios";
 import "./blogcard.css";
 
 const BlogCard = ({ id,image, title, date,userId}) => {
-  const [isSaved, setIsSaved] = useState(false);
-  
+  const [isSaved, setIsSaved] = useState(false);  
   console.log("BlogCard Props:", { id, image, title, date, userId });
-
-
+  
   useEffect(() => {
     if (!userId) {
       console.warn("userId is undefined. Skipping API call.");
@@ -37,8 +35,6 @@ const BlogCard = ({ id,image, title, date,userId}) => {
         console.error("Error saving/unsaving blog:", error);
     }
   };
-
-
   
   return (
     <div className="blog-card-container">

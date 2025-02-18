@@ -3,7 +3,7 @@
     background-color: #ECF4E9;
     padding: 20px;
 }
-.floating-plus {
+.editor-floating-plus {
     position: fixed; 
     right: 20px; 
     bottom: 50px;
