@@ -23,7 +23,7 @@ const Blog = () => {
   return (
     <div className="blog-page">
       <div className="slogan">
-      🌿 Welcome to the PlantIt Blog – your space for all things green! Whether you're a gardening enthusiast, a plant parent, or just love nature, our blog brings you expert tips, DIY ideas, and inspiring plant stories to nurture your passion for greenery 🌱
+      🌿The PlantIt Blog🌱
     </div>
       <div className="blog-container">
         {blogs.length > 0 ? (

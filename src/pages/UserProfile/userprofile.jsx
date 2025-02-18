@@ -74,9 +74,6 @@ const UserProfile = () => {
         headers: { Authorization: `Bearer ${token}`}
       });
 
-      console.log("Password Change Payload:", passwordData);
-      console.log("Sending request to:", `users/changepassword/${userId}`);
-
       setSuccessMessage("Password changed successfully!");
         setIsModalOpen(false);
         navigate('/userprofile');

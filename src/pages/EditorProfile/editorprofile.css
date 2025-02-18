@@ -63,35 +63,70 @@
 .editor-profile-container button + button {
     margin-left: 10px;
 }
-  
-.modal-overlay {
+
+
+/* Modal Background */
+.change-password-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
-.modal-content {
+/* Modal Content Box */
+.change-password-modal-content {
   background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  position: relative;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Added this to contain the close icon inside */
 }
 
-.close-btn {
+/* Close Button Styles */
+.change-password-close-modal {
+  background: none;
+  border: none;
+  font-size: 24px;
   position: absolute;
   top: 10px;
   right: 10px;
-  background: none;
-  border: none;
-  font-size: 18px;
   cursor: pointer;
+ 
 }
+
+/* Change Password Input Fields */
+.change-password-modal-content input {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Change Password Button Styles */
+.change-password-modal-content button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #d61f1f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.change-password-modal-content button:hover {
+  background-color: #ff0000;
+}
+
 

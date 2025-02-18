@@ -14,7 +14,7 @@ const UpdateBlog = () => {
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -33,7 +33,7 @@ const UpdateBlog = () => {
           setDescription(data.description);
           setContent(data.content);
           setCategory(data.category);
-          setTags(data.tags.join(", ")); // Convert array to comma-separated string
+          setTags(Array.isArray(data.tags) ? data.tags.join(", ") : "");// Convert array to comma-separated string
 
           if (data.image_path){
             setPreviewImage (`http://localhost:5000${data.image_path.startsWith("/") ? data.image_path : `/${data.image_path}`}`);
@@ -95,7 +95,7 @@ const UpdateBlog = () => {
           setContent("");
           setCategory("");
           setTags("");
-          setImage(null);
+          setImage("");
           setPreviewImage("");
           setTimeout(() => navigate("/your-blog"), 1000); // Redirect after success
         }
