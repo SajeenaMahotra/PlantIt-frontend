@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../../api/axios";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import DOMPurify from "dompurify";
 import "./draftupdate.css"; // Reuse styles from CreateBlog
 
 const DraftUpdate = () => {
@@ -32,6 +35,8 @@ const DraftUpdate = () => {
       alert("At least one tag is required.");
       return;
     }
+
+    const sanitizedContent = DOMPurify.sanitize(content);
   
     const formData = new FormData();
     formData.append("title", title);
@@ -123,6 +128,8 @@ const DraftUpdate = () => {
     
         const confirmPublish = window.confirm("Do you want to publish this blog?");
         if (!confirmPublish) return; 
+
+        const sanitizedContent = DOMPurify.sanitize(content);
     
         const formData = new FormData();
         formData.append("title", title);
@@ -188,7 +195,7 @@ const DraftUpdate = () => {
         <div className="blog-details">
           <input type="text" placeholder="Blog Title" className="blog-input" value={title} onChange={(e) => setTitle(e.target.value)} />
           <textarea placeholder="Short Description" className="blog-textarea" value={description || ""} onChange={(e) => setDescription(e.target.value)} />
-          <textarea placeholder="Write your content here..." className="blog-content" value={content} onChange={(e) => setContent(e.target.value)} />
+          <ReactQuill placeholder="Write your content here..." value={content} onChange={setContent} className="quill-editor" />
           <input type="text" placeholder="Category" className="blog-input" value={category} onChange={(e) => setCategory(e.target.value)} />
           <input type="text" placeholder="Tags (separated by commas)" className="blog-input" value={tags} onChange={(e) => setTags(e.target.value)} />
           {successMessage && (<div className="success-message">{successMessage}</div>)}

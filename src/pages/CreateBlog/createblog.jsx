@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ReactQuill from "react-quill";  // Import ReactQuill
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import DOMPurify from "dompurify";
 import "./createblog.css";
 
 const CreateBlog = () => {
@@ -37,6 +38,8 @@ const CreateBlog = () => {
       alert("At least one tag is required.");
       return;
     }
+
+    const sanitizedContent = DOMPurify.sanitize(content);
 
     const formData = new FormData();
     formData.append("title", title);
@@ -111,6 +114,8 @@ const CreateBlog = () => {
     const confirmPublish = window.confirm("Do you want to publish this blog?");
     if (!confirmPublish) return; 
 
+    const sanitizedContent = DOMPurify.sanitize(content);
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
@@ -172,7 +177,8 @@ const CreateBlog = () => {
         <div className="blog-details">
           <input type="text" placeholder="Blog Title" className="blog-input" value={title} onChange={(e) => setTitle(e.target.value)} />
           <textarea placeholder="Short Description" className="blog-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
-          <textarea placeholder="Write your content here..." className="blog-content" value={content} onChange={(e) => setContent(e.target.value)} />
+          <ReactQuill
+            placeholder="Write your content here..." value={content} onChange={setContent} className="quill-editor" />
           <input type="text" placeholder="Category" className="blog-input" value={category} onChange={(e) => setCategory(e.target.value)} />
           <input type="text" placeholder="Tags (separated by commas)" className="blog-input" value={tags} onChange={(e) => setTags(e.target.value)} />
           {successMessage && (<div className="success-message">{successMessage}</div>)}
