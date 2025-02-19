@@ -11,9 +11,9 @@ const Navbar = ({ setShowSignup, isLoggedIn }) => {
 
   const handleNavigation = (path) => {
     if ( !isLoggedIn && (path === "/learn" || path === "/blog" || path === "/profile" || path ==="/search" )) {
-      setShowSignup(true); // Show Signup modal instead of navigating
+      setShowSignup(true); 
     } else if (location.pathname === path) {
-      window.location.reload(); // Reload if already on the same page
+      window.location.reload(); 
     } else {
       navigate(path);
     }
@@ -21,12 +21,10 @@ const Navbar = ({ setShowSignup, isLoggedIn }) => {
 
   const handleAboutClick = () => {
     if (location.pathname !== '/') {
-      // Navigate to the homepage
       navigate('/');
       setTimeout(() => {
-        // Delay scrolling to allow navigation to complete
         document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
-      }, 100); // Delay to ensure the page load completes before scrolling
+      }, 100); 
     }
   };
   
@@ -39,7 +37,6 @@ const Navbar = ({ setShowSignup, isLoggedIn }) => {
       <div className="nav-links">
         <span className={currentPath === "/home" ? "active" : ""} onClick={() => handleNavigation("/")}>Home</span>
         <span className={currentPath === "/blog" ? "active" : ""} onClick={() => handleNavigation("/blog")}>Blog</span>
-        {/* Smooth Scroll for About */}
         {location.pathname === "/" ? (
           <ScrollLink to="about-section" smooth={true} duration={800} className="nav-link">
             <span>About</span>

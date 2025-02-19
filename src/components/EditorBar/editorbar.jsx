@@ -10,11 +10,10 @@ const EditorBar = () => {
   
   const handleNavigation = (path) => {
     navigate(path)
-    setMenuOpen(false); // Navigate to the given path
+    setMenuOpen(false); 
   };
-
-   // Close menu when clicking outside
-   useEffect(() => {
+  
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuOpen(false);

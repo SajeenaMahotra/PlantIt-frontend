@@ -36,7 +36,7 @@ const UpdateBlog = () => {
           setDescription(data.description);
           setContent(data.content);
           setCategory(data.category);
-          setTags(Array.isArray(data.tags) ? data.tags.join(", ") : "");// Convert array to comma-separated string
+          setTags(Array.isArray(data.tags) ? data.tags.join(", ") : "");
 
           if (data.image_path){
             setPreviewImage (`http://localhost:5000${data.image_path.startsWith("/") ? data.image_path : `/${data.image_path}`}`);

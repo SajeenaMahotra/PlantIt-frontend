@@ -28,8 +28,8 @@ function App() {
   const [userRole, setUserRole] = useState(null); 
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Reset login state
-    setUserRole(null);    // Reset user role
+    setIsLoggedIn(false); 
+    setUserRole(null);   
   };
 
 

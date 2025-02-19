@@ -118,7 +118,7 @@ const DraftUpdate = () => {
       }
     
       // Split tags into an array and trim them
-      const tagArray = tags.split(",") // Filter out empty strings
+      const tagArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
       
       // Check if there is at least one valid tag
       if (tagArray.length === 0) {
@@ -143,8 +143,8 @@ const DraftUpdate = () => {
         console.log(tagArray); // Log the tags array
     
         try {
-          const response = await fetch('http://localhost:5000/blogs/create', {
-            method: "POST",
+          const response = await fetch(`http://localhost:5000/blogs/${id}`, {
+            method: "PUT",
             body: formData,
             headers: {
               Authorization: `Bearer ${sessionStorage.getItem("token")}`,

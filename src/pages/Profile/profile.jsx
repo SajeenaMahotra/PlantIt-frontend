@@ -54,7 +54,7 @@ const Profile = ({ setIsLoggedIn }) => {
               <BlogCard 
               key={blog.id} 
               id={blog.blog_id} 
-              image={`http://localhost:5000${blog.Blog.image_path}`} // Use a fallback image
+              image={`http://localhost:5000${blog.Blog.image_path}`} 
               title={blog.Blog.title } 
               date={blog.saved_at} 
               userId={userId}
