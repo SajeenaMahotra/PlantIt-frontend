@@ -69,7 +69,7 @@ const Profile = ({ setIsLoggedIn }) => {
       </div>
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
       <button className="editprofile-btn" onClick={handleEditProfile}>Edit Profile</button>
-      <div className="profile-floating-plus" onClick={() => navigate("/createblog")}>+</div>
+      <div className="profile-floating-plus">+</div>
       </div>
   );
 };

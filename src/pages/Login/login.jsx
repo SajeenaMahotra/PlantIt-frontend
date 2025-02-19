@@ -99,14 +99,7 @@ const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
 
         <form onSubmit={handleLogin}>
           <div className="input-container">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-box"
-              required
-            />
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-box" required/>
           </div>
           <div className="input-container">
             <input
@@ -121,11 +114,10 @@ const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
 
           
           <div className="input-container">
-            
             <select
               value={userType}
               onChange={(e) => setUserType(e.target.value)}
-              className="input-box">
+              className="select-box">
               <option value="user">User</option>
               <option value="editor">Editor</option>
             </select>
@@ -133,13 +125,14 @@ const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
 
          
           <div className="remember-me-container">
+          <label>Remember Me</label>
             <input
               type="checkbox"
               checked={rememberMe}
               onChange={() => setRememberMe(!rememberMe)} 
               disabled={userType === 'editor'} 
             />
-            <label>Remember Me</label>
+
           </div>
 
           <div className="forgot-password">

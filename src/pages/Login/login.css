@@ -55,12 +55,33 @@
     outline: none;
 }
 
+.select-box {
+    width: 320px;
+    height: 50px; /* Ensure it's the same height as inputs */
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-top: 7px;
+}
+
+.remember-me-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    column-gap: 5px; 
+    white-space: nowrap;/* Space between checkbox and label */
+    width: 40%; 
+
+}
+
 .forgot-password {
     margin-left: 190px;
     font-size: 16px;
     font-style: italic;
     margin-bottom: 3px;
     text-align: center;
+    margin-top: auto;
 }
 
 
@@ -113,3 +134,4 @@
 .login-btn:hover {
     background-color: #333;
 }
+

@@ -59,7 +59,7 @@ function App() {
       <Route path="/blog" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Blog setIsLoggedIn={setIsLoggedIn} /></>} />
       <Route path="/blog/:id" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><BlogDetail setIsLoggedIn={setIsLoggedIn} /><Footer /></>} />
       <Route path="/search" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Search setIsLoggedIn={setIsLoggedIn} /></>} />
-      <Route path="/userprofile" element={<><Navbar/><UserProfile /></>} /> 
+      <Route path="/userprofile" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn}/><UserProfile /></>} /> 
       <Route path="/editordashboard" element={<><EditorBar /><EditorDashboard /></>} />
       <Route path="/createblog" element={<><EditorBar /><CreateBlog /></>} />
       <Route path="/your-blog" element={<><EditorBar /><YourBlogs /></>} />
