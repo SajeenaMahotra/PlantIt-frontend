@@ -56,7 +56,7 @@ const Profile = ({ setIsLoggedIn }) => {
               id={blog.blog_id} 
               image={`http://localhost:5000${blog.Blog.image_path}`} 
               title={blog.Blog.title } 
-              date={blog.saved_at} 
+              date={new Date(blog.saved_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} 
               userId={userId}
               isSaved={true}/>
             ) : (

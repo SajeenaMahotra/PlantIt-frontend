@@ -5,7 +5,7 @@ import "./blogcard.css";
 
 const BlogCard = ({ id,image, title, date,userId}) => {
   const [isSaved, setIsSaved] = useState(false);  
-  console.log("BlogCard Props:", { id, image, title, date, userId });
+  // console.log("BlogCard Props:", { id, image, title, date, userId });
   
   useEffect(() => {
     if (!userId) {
@@ -35,6 +35,15 @@ const BlogCard = ({ id,image, title, date,userId}) => {
         console.error("Error saving/unsaving blog:", error);
     }
   };
+
+  // Log viewed blog
+  const logView = async () => {
+    try {
+        await axios.post("http://localhost:5000/viewedblogs/view", { user_id: userId, blog_id: id });
+    } catch (error) {
+        console.error("Error logging blog view:", error);
+    }
+};
   
   return (
     <div className="blog-card-container">
@@ -43,7 +52,7 @@ const BlogCard = ({ id,image, title, date,userId}) => {
         <div className="blog-content">
           <p className="blog-meta">By PlantIt. {date}</p>
           <h3 className="blog-title">{title}</h3>
-          <Link to={`/blog/${id}`} className="read-more">Read More</Link> 
+          <Link to={`/blog/${id}`} className="read-more" onClick={logView}>Read More</Link> 
           <button onClick={handleSaveToggle} className={isSaved ? "saved" : "save"}> {isSaved ? "Saved" : "Save"}</button>
         </div>
       </div>

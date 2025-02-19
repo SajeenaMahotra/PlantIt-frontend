@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Search.css';  
 import { FaSearch } from 'react-icons/fa';  
 import axiosInstance from '../../api/axios';
@@ -7,10 +7,31 @@ import BlogCard from '../../components/BlogCard/blogcard';
 const Search = () => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [recommendedBlogs, setRecommendedBlogs] = useState([]);
   const [userId, setUserId] = useState(sessionStorage.getItem('userId') || '');
+
+
+
+  useEffect(() => {
+    if (userId) {
+      fetchRecommendations();
+    }
+  }, [userId]);
+  
+  const fetchRecommendations = async () => {
+    try {
+      const response = await axiosInstance.get(`http://localhost:5000/blogrecommendations/recommendations/${userId}`);
+      // console.log("Recommended Blogs API Response:", response.data);
+      setRecommendedBlogs(response.data);  
+    } catch (error) {
+      console.error('Error fetching recommendations:', error);
+      setRecommendedBlogs([]); 
+    }
+  };
 
   const handleSearch = async () => {
     try {
+      if (!query.trim()) return;
       const response = await axiosInstance.get(`http://localhost:5000/blogs/search/blogs?query=${query}`);
       setSearchResults(response.data);  // Set the blogs data
     } catch (error) {
@@ -29,26 +50,46 @@ const Search = () => {
         </button>
       </div>
 
-      <div className="search-results">
-        {searchResults.length > 0 ? (
-          searchResults.map((blog) => (
-            <BlogCard
-              key={blog.id}
-              id={blog.id}
-              image={blog.imageUrl}
-              title={blog.title}
-              date={blog.published_at}
-              userId={userId}  // Pass userId to the BlogCard
-            />
-          ))
-        ) : (
-          <p>No results found.</p>
-        )}
-      </div>
+      {/* Show recommendations only if no search query */}
+      {query === '' && recommendedBlogs.length > 0 && (
+        <div className="recommended-section">
+          <h2>Recommended for You</h2>
+          <div className="blog-list">
+            {recommendedBlogs.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                id={blog.id}
+                image={`http://localhost:5000${blog.image_path}`}
+                title={blog.title}
+                date={new Date(blog.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                userId={userId}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
-
+      {/* Show search results only if there's a query */}
+      {query !== '' && (
+        <div className="search-results">
+          {searchResults.length > 0 ? (
+            searchResults.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                id={blog.id}
+                image={blog.imageUrl}
+                title={blog.title}
+                date={new Date(blog.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                userId={userId}
+              />
+            ))
+          ) : (
+            <p>No results found.</p>
+          )}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Search;
