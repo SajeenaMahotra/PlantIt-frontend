@@ -20,6 +20,8 @@ import YourBlogs from './pages/YourBlog/yourblog'
 import UpdateBlog from './pages/UpdateBlog/updateblog';
 import DraftsPage from './pages/Drafts/yourdraft';
 import DraftUpdate from './pages/Drafts/draftupdate';
+import PlantOfTheMonth from './pages/PlantOfTheMonth/plantofthemonth';
+import AddPlantOfTheMonth from './pages/AddPlantOfTheMonth/addplantofthemonth';
 
 
 function App() {
@@ -52,6 +54,7 @@ function App() {
       {!isLoggedIn && <TopBar />}{/* Show TopBar only if not logged in */}
       {showSignup && <Signup onClose={() => setShowSignup(false)} />} {/* Show Signup if triggered */}
       <Routes>
+      <Route path="/plantofthemonth" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><PlantOfTheMonth setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Footer /></>} />
       <Route path="/" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Home setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><About /></>} /> 
       <Route path="/login" element={<><Login setIsLoggedIn={setIsLoggedIn}  setUserRole={setUserRole} /> <Footer /></>} />
       <Route path="/signup" element={<><Signup onClose={() => setShowSignup(false)} /><Footer /></>} />
@@ -62,6 +65,7 @@ function App() {
       <Route path="/userprofile" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn}/><UserProfile /></>} /> 
       <Route path="/editordashboard" element={<><EditorBar /><EditorDashboard /></>} />
       <Route path="/createblog" element={<><EditorBar /><CreateBlog /></>} />
+      <Route path="/addplantofthemonth" element={<><EditorBar /><AddPlantOfTheMonth /></>} />
       <Route path="/your-blog" element={<><EditorBar /><YourBlogs /></>} />
       <Route path="/drafts" element={<><EditorBar /><DraftsPage /></>} />
       <Route path="/update-blog/:id" element={<><EditorBar /><UpdateBlog /></>} />

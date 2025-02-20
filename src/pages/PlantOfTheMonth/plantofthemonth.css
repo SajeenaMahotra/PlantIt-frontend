@@ -1,0 +1,54 @@
+.plant-of-the-month {
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    
+    text-align: left;
+}
+  
+.plant-of-the-month h1 {
+    font-size: 30px;
+    font-weight: 300;
+    color: #143D06;
+    margin-bottom: 15px;
+  }
+  
+.plant-of-the-month img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 20px;
+}
+  
+.plant-of-the-month p {
+    font-size: 1.1rem;
+    color: hsl(0, 0%, 18%);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  
+.plant-of-the-month h2 {
+    font-size: 1.5rem;
+    color: #143D06;
+    margin-top: 20px;
+}
+  
+@media (max-width: 600px) {
+  .plant-of-the-month {
+      padding: 15px;
+  }
+  
+  .plant-of-the-month h1 {
+      font-size: 1.8rem;
+  }
+  
+  .plant-of-the-month img {
+      max-width: 100%;
+  }
+  
+  .plant-of-the-month p {
+      font-size: 1rem;
+  }
+}
+  

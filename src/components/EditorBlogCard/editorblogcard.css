@@ -9,6 +9,7 @@
     margin-bottom: 10px;
    margin-left: auto;
    margin-right: auto;
+   flex-wrap: wrap; /* Allow content to wrap on small screens */
 }
   
 .editor-blog-image {
@@ -21,6 +22,8 @@
   
 .editor-blog-content {
     flex-grow: 1;
+    max-width: calc(100% - 170px);
+    flex-wrap: wrap; 
 }
   
 .editor-blog-actions {
@@ -42,5 +45,40 @@
 .editor-delete-btn {
     background-color: #f44336;
     color: white;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .editor-blog-card {
+        width: 90%; /* Full width on mobile */
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the left */
+        height: auto;
+    }
+
+    .editor-blog-image {
+        width: 100%; /* Image takes up full width on mobile */
+        height: 200px; /* Adjust height on mobile */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Space between image and title */
+    }
+
+    .editor-blog-content {
+        max-width: 100%; /* Allow content to take up full width */
+        margin-top: 10px;
+    }
+
+    .editor-blog-actions {
+        width: 90%; /* Ensure actions span full width on mobile */
+        display: flex;
+        flex-direction: column; /* Stack actions vertically */
+        justify-content: flex-start;
+    }
+
+    .editor-update-btn, .editor-delete-btn {
+        width: 90%; /* Make buttons take full width */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add space between buttons */
+    }
 }
   

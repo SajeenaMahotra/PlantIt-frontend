@@ -1,9 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // Add navigate for routing
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import axiosInstance from "../../api/axios";
 import "./home.css";
 
 const Home = ({ isLoggedIn, setShowSignup }) => {
   const navigate = useNavigate();
+  const [plantImage, setPlantImage] = useState(""); 
 
   const handleBoxClick = (path) => {
     if (isLoggedIn) {
@@ -13,6 +15,21 @@ const Home = ({ isLoggedIn, setShowSignup }) => {
     }
   };
 
+  useEffect(() => {
+    const fetchPlantOfTheMonth = async () => {
+      try {
+        const response = await axiosInstance.get("/potm/plantofthemonth");
+        if (response.data && response.data.imageUrl) {
+          setPlantImage(response.data.imageUrl); // Store image URL
+        }
+      } catch (error) {
+        console.error("Error fetching Plant of the Month:", error);
+      }
+    };
+
+    fetchPlantOfTheMonth();
+  }, []);
+
   return (
     <div className="home">
       <div className="box-container">
@@ -20,8 +37,12 @@ const Home = ({ isLoggedIn, setShowSignup }) => {
           <img src="/src/assets/plantcare.png" alt="Plant Care" className="box-image" />
           <div className="box-overlay">Browse Plants</div>
         </div>
-        <div className="box" >
-          <img src="/src/assets/image2.jpg" alt="Plant Of the Month" className="box-image" />
+        <div className="box"  onClick={() => navigate("/plantofthemonth")}>
+        <img 
+            src={plantImage || "/src/assets/default-plant.jpg"} 
+            alt="Plant Of the Month" 
+            className="box-image" 
+          />
           <div className="box-overlay">Plant of the Month</div>
         </div>
         <div className="box" onClick={() => handleBoxClick("/blog")}>

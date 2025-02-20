@@ -43,3 +43,32 @@
     background-color: #f44336;
     color: white;
 }
+
+@media (max-width: 768px) {
+    .draft-card {
+        flex-direction: column; /* Stack content vertically */
+        width: 70%; /* Use more of the screen width */
+        height: auto; /* Let the height adjust based on content */
+    }
+
+    .draft-image {
+        width: 100%; /* Image takes full width on mobile */
+        height: 200px; /* Adjust height for mobile */
+        margin-right: 0; /* Remove margin for better layout */
+        margin-bottom: 10px; /* Add space below the image */
+    }
+
+    .draft-content {
+        margin-top: 10px; /* Add margin on top for separation */
+    }
+
+    .draft-actions {
+        text-align: center; /* Center action buttons on mobile */
+    }
+
+    .draft-view-btn, .draft-delete-btn {
+        width: 100%; /* Make buttons full width on mobile */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Space between buttons */
+    }
+}

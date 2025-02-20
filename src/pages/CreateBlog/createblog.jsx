@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import DOMPurify from "dompurify";
+import axios from "../../api/axios"
 import "./createblog.css";
 
 const CreateBlog = () => {
@@ -52,8 +53,8 @@ const CreateBlog = () => {
     if (imageFile) formData.append("image", imageFile);
 
     try {
-      const response = await fetch('http://localhost:5000/blogs/create', {
-        method: "POST",
+      const response = await axios.post('http://localhost:5000/blogs/create', {
+        
         body: formData,
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,

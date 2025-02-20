@@ -13,6 +13,11 @@ const EditorDashboard = () => {
         +
       </div>
 
+      {/* Add Plant of the Month Button */}
+      <div className="add-plant-button" onClick={() => navigate("/addplantofthemonth")}>
+        Add Plant of the Month
+      </div>
+
       {/* Main Content */}
       <div className="content">
         <h1>Welcome, Editor!</h1>
