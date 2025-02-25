@@ -21,7 +21,7 @@ const EditorProfile = ({ setIsLoggedIn, handleLogout }) => {
   const editorId = sessionStorage.getItem("editorId");
   const token = sessionStorage.getItem("token");
 
-  // Fetch editor profile data from the backend
+  
   useEffect(() => {
         if (!editorId && !token) {
           console.error("Editor ID or token is missing or null");
@@ -49,7 +49,7 @@ const EditorProfile = ({ setIsLoggedIn, handleLogout }) => {
 
   const handleUpdate = async () => {
     try {
-      const token = sessionStorage.getItem("token"); // Ensure this is the correct key
+      const token = sessionStorage.getItem("token"); 
       if (!token) {
         console.error("Token is missing");
         return;
@@ -70,24 +70,21 @@ const EditorProfile = ({ setIsLoggedIn, handleLogout }) => {
     } catch (error) {
       console.error("Error updating profile:", error);
       if (error.response) {
-        console.error("Response data:", error.response.data); // Log the error response from the backend
-        console.error("Status code:", error.response.status); // Log the status code
+        console.error("Response data:", error.response.data); 
+        console.error("Status code:", error.response.status); 
       }
     }
   };
 
   const handleLogoutClick = () => {
-    // Clear session and local storage
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("editorId");
     sessionStorage.removeItem("role");
     localStorage.removeItem("token");
     localStorage.removeItem("role");
 
-    // Call the handleLogout function from props
+    
     handleLogout();
-
-    // Navigate to the login page
     navigate("/login");
   };
 

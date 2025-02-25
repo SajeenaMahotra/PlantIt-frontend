@@ -7,6 +7,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .blog-card-container .blog-image {
@@ -58,6 +59,8 @@
     padding: 8px 12px;
     cursor: pointer;
     transition: 0.3s;
+    top: 250px;
+    position: absolute;
 }
 
 .saved {
@@ -69,6 +72,8 @@
     padding: 8px 12px;
     cursor: pointer;
     transition: 0.3s;
+    top: 250px;
+    position: absolute;
 }
 
 

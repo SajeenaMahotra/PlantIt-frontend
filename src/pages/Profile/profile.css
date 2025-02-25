@@ -38,22 +38,8 @@
 }
   
 .logout-btn {
-    bottom: 70px; /* Position the logout button slightly above the edit profile button */
-}
-
-.profile-floating-plus {
-  position: fixed; 
-  right: 20px; 
-  bottom: 50px;
-  background-color: #143D06; 
-  color: white; 
-  padding: 15px; 
-  font-size: 25px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-  
-  
+    bottom: 70px; 
+}  
 
 .logout-btn {
   border: 2px solid red;

@@ -55,25 +55,24 @@
 }
 
 /* Update button styles */
-.userprofile-container button:first-of-type {
+.userprofile-container .button-update {
     background-color: #ECF4E9; 
     color: rgb(0, 0, 0);
     outline: solid black; /* Add black outline */
 }
 
-
-.userprofile-container button:first-of-type:hover {
+.userprofile-container .button-update:hover {
     background-color: #e1ffd7;  
 }
 
 /* Change Password button styles */
-.userprofile-container button:last-of-type {
+.userprofile-container .button-changepassword {
     background-color: #d61f1f; 
     color: white;
     margin-top: 20px;
 }
 
-.userprofile-container button:last-of-type:hover {
+.userprofile-container .button-changepassword:hover {
     background-color: #ff0000;
 }
 
@@ -81,6 +80,7 @@
 .userprofile-container button + button {
     margin-top: 15px;
 }
+
 
 /* Modal Background */
 .change-password-modal {

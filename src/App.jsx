@@ -22,6 +22,7 @@ import DraftsPage from './pages/Drafts/yourdraft';
 import DraftUpdate from './pages/Drafts/draftupdate';
 import PlantOfTheMonth from './pages/PlantOfTheMonth/plantofthemonth';
 import AddPlantOfTheMonth from './pages/AddPlantOfTheMonth/addplantofthemonth';
+import TermsAndConditions from './pages/TermsAndConditions/termsandconditions';
 
 
 function App() {
@@ -32,6 +33,11 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false); 
     setUserRole(null);   
+  };
+
+  const handleAccountDeletion = () => {
+    setIsLoggedIn(false);
+    setUserRole(null);
   };
 
 
@@ -55,6 +61,7 @@ function App() {
       {showSignup && <Signup onClose={() => setShowSignup(false)} />} {/* Show Signup if triggered */}
       <Routes>
       <Route path="/plantofthemonth" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><PlantOfTheMonth setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Footer /></>} />
+      <Route path="/termsandconditions" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><TermsAndConditions setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Footer /></>} />
       <Route path="/" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Home setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><About /></>} /> 
       <Route path="/login" element={<><Login setIsLoggedIn={setIsLoggedIn}  setUserRole={setUserRole} /> <Footer /></>} />
       <Route path="/signup" element={<><Signup onClose={() => setShowSignup(false)} /><Footer /></>} />
@@ -62,7 +69,7 @@ function App() {
       <Route path="/blog" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Blog setIsLoggedIn={setIsLoggedIn} /></>} />
       <Route path="/blog/:id" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><BlogDetail setIsLoggedIn={setIsLoggedIn} /><Footer /></>} />
       <Route path="/search" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/><Search setIsLoggedIn={setIsLoggedIn} /></>} />
-      <Route path="/userprofile" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn}/><UserProfile /></>} /> 
+      <Route path="/userprofile" element={<><Navbar setShowSignup={setShowSignup} isLoggedIn={isLoggedIn}/><UserProfile handleAccountDeletion={handleAccountDeletion}/></>} /> 
       <Route path="/editordashboard" element={<><EditorBar /><EditorDashboard /></>} />
       <Route path="/createblog" element={<><EditorBar /><CreateBlog /></>} />
       <Route path="/addplantofthemonth" element={<><EditorBar /><AddPlantOfTheMonth /></>} />

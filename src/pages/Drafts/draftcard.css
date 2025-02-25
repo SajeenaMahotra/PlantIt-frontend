@@ -46,29 +46,29 @@
 
 @media (max-width: 768px) {
     .draft-card {
-        flex-direction: column; /* Stack content vertically */
-        width: 70%; /* Use more of the screen width */
-        height: auto; /* Let the height adjust based on content */
+        flex-direction: column; 
+        width: 70%; 
+        height: auto; 
     }
 
     .draft-image {
-        width: 100%; /* Image takes full width on mobile */
-        height: 200px; /* Adjust height for mobile */
-        margin-right: 0; /* Remove margin for better layout */
-        margin-bottom: 10px; /* Add space below the image */
+        width: 100%; 
+        height: 200px; 
+        margin-right: 0; 
+        margin-bottom: 10px; 
     }
 
     .draft-content {
-        margin-top: 10px; /* Add margin on top for separation */
+        margin-top: 10px; 
     }
 
     .draft-actions {
-        text-align: center; /* Center action buttons on mobile */
+        text-align: center; 
     }
 
     .draft-view-btn, .draft-delete-btn {
-        width: 100%; /* Make buttons full width on mobile */
-        margin-right: 0; /* Remove right margin */
-        margin-bottom: 10px; /* Space between buttons */
+        width: 100%; 
+        margin-right: 0; 
+        margin-bottom: 10px; 
     }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import DOMPurify from 'dompurify';
-import "./blogdetail.css"; // You can define custom styles for the detailed view.
+import "./blogdetail.css"; 
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -24,13 +24,13 @@ const BlogDetail = () => {
   if (!blog) return <p>Loading...</p>;
 
   const sanitizedContent = DOMPurify.sanitize(blog.content, {
-    ALLOWED_TAGS: ['strong', 'em', 'u', 'ol', 'li', 'p', 'br', 'span'], // Add tags you want to allow
+    ALLOWED_TAGS: ['strong', 'em', 'u', 'ol', 'li', 'p', 'br', 'span'], 
   });
 
   return (
     <div className="blog-detail-container">
       <div className="category-box">
-        <h3>{blog.category}</h3> {/* Assuming 'category' exists */}
+        <h3>{blog.category}</h3> 
       </div>
 
       <h1 className="blog-title">{blog.title}</h1>
@@ -50,7 +50,7 @@ const BlogDetail = () => {
       <p className="blog-description">{blog.description}</p>
 
       <div className="blog-content">
-        {/* Render sanitized content with formatting */}
+        
         <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       </div>
 

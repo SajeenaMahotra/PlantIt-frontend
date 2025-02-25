@@ -23,14 +23,14 @@
     font-size: 1rem;
 }
   
-  /* Style for the label text */
+ 
 .editor-profile-container label {
     font-size: 1rem;
     color: #333;
     margin-bottom: 5px;
 }
   
-  /* Buttons */
+
 .editor-profile-container button {
     background-color: #007bff;
     color: white;
@@ -47,25 +47,25 @@
     background-color: #0056b3;
 }
   
-  /* Disabled input styling */
+  
 .editor-profile-container input[disabled] {
     background-color: #f2f2f2;
     color: #434343;
 }
   
-  /* Profile container margins */
+  
 .editor-profile-container > div {
     width: 100%;
     margin-bottom: 15px;
 }
   
-  /* Profile page spacing */
+ 
 .editor-profile-container button + button {
     margin-left: 10px;
 }
 
 
-/* Modal Background */
+
 .change-password-modal {
   position: fixed;
   top: 0;
@@ -79,7 +79,7 @@
   z-index: 1000;
 }
 
-/* Modal Content Box */
+
 .change-password-modal-content {
   background-color: white;
   padding: 30px;
@@ -89,10 +89,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; /* Added this to contain the close icon inside */
+  position: relative; 
 }
 
-/* Close Button Styles */
+
 .change-password-close-modal {
   background: none;
   border: none;
@@ -104,7 +104,7 @@
  
 }
 
-/* Change Password Input Fields */
+
 .change-password-modal-content input {
   margin-bottom: 15px;
   padding: 10px;
@@ -114,7 +114,7 @@
   font-size: 16px;
 }
 
-/* Change Password Button Styles */
+
 .change-password-modal-content button {
   padding: 12px 20px;
   font-size: 16px;

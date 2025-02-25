@@ -8,17 +8,17 @@ const EditorDashboard = () => {
 
   return (
     <div className="editor-dashboard">
-      {/* Floating Plus Button to navigate to Create Blog */}
+      
       <div className="editor-floating-plus" onClick={() => navigate("/createblog")}>
         +
       </div>
 
-      {/* Add Plant of the Month Button */}
+     
       <div className="add-plant-button" onClick={() => navigate("/addplantofthemonth")}>
         Add Plant of the Month
       </div>
 
-      {/* Main Content */}
+      
       <div className="content">
         <h1>Welcome, Editor!</h1>
         <p>Manage your blogs and profile here.</p>

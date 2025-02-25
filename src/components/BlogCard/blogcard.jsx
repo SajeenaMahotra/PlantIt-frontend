@@ -36,7 +36,6 @@ const BlogCard = ({ id,image, title, date,userId}) => {
     }
   };
 
-  // Log viewed blog
   const logView = async () => {
     try {
         await axios.post("http://localhost:5000/viewedblogs/view", { user_id: userId, blog_id: id });

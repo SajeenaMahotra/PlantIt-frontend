@@ -13,16 +13,6 @@ const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate(); 
 
-  // Handle user role selection
-  const handleUserTypeChange = (e) => {
-    const selectedRole = e.target.value;
-    setUserType(selectedRole);
-
-    if (selectedRole === 'editor') {
-      setRememberMe(false);
-    }
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrorMessage(""); 
@@ -111,7 +101,6 @@ const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
               required
             />
           </div>
-
           
           <div className="input-container">
             <select
@@ -135,9 +124,6 @@ const Login = ({ setIsLoggedIn, setUserRole ,isLoggedIn }) => {
 
           </div>
 
-          <div className="forgot-password">
-            <span>Forgot Password?</span>
-          </div>
           <button type="submit" className="login-btn">LOGIN</button>
           <div className="signup-prompt">
             <span>Don't have an account?</span>

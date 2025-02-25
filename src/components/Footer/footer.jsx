@@ -7,10 +7,9 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-links">
           <a href="/" >Home</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms-and-conditions">Terms and Conditions</a>
-          <a href="/disclaimer">Disclaimer</a>
-          <a href="/contact">Contact</a>
+          <a href="/termsandconditions">Terms and Conditions</a>
+          <a href="/plantofthemonth">Plant Of the Month</a>
+          <a href="/login">Login </a>
         </div>
         <div className="footer-copyright">
           <p>&copy; {new Date().getFullYear()} PlantIt. All Rights Reserved.</p>

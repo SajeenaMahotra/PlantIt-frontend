@@ -76,7 +76,7 @@ const Signup = ({ onClose }) => {
           Already have an account? <span className="login-link" onClick={() => { onClose(); navigate("/login"); }}>Login.</span>
         </p>
         <p className="terms-text">
-          By signing up, you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span>.
+          By signing up, you agree to our <span>Terms and Conditions</span>.
         </p>
       </div>
     </div>

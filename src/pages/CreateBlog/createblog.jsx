@@ -31,10 +31,9 @@ const CreateBlog = () => {
       return;
     }
 
-    // Split tags into an array and trim them
     const tagArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
 
-    // Check if there is at least one valid tag
+
     if (tagArray.length === 0) {
       alert("At least one tag is required.");
       return;
@@ -48,7 +47,7 @@ const CreateBlog = () => {
     formData.append("content", content);
     formData.append("category", category);
     formData.append("tags", JSON.stringify(tagArray));
-    formData.append("status", "draft"); // Save as draft
+    formData.append("status", "draft"); 
 
     if (imageFile) formData.append("image", imageFile);
 
@@ -64,7 +63,7 @@ const CreateBlog = () => {
       const data = await response.json();
       if (response.ok) {
         setSuccessMessage("Blog saved as draft successfully!");
-        // Clear fields after saving as draft
+        
         setTitle("");
         setDescription("");
         setContent("");
@@ -84,7 +83,6 @@ const CreateBlog = () => {
   const handleCancel = () => {
     const confirmCancel = window.confirm("Do you want to delete the blog you are working on?");
     if (confirmCancel) {
-      // Clear the form and navigate to the editor dashboard
       setTitle("");
       setDescription("");
       setContent("");
@@ -103,10 +101,10 @@ const CreateBlog = () => {
       return;
   }
 
-  // Split tags into an array and trim them
-  const tagArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag); // Filter out empty strings
   
-  // Check if there is at least one valid tag
+  const tagArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag); 
+  
+  
   if (tagArray.length === 0) {
     alert("At least one tag is required.");
     return;
@@ -122,11 +120,11 @@ const CreateBlog = () => {
     formData.append("description", description);
     formData.append("content", content);
     formData.append("category", category);
-    formData.append("tags", JSON.stringify(tagArray)); // Stringify the tags array
+    formData.append("tags", JSON.stringify(tagArray)); 
     formData.append("status", "published"); 
     if (imageFile) formData.append("image", imageFile); 
     
-    console.log(tagArray); // Log the tags array
+    console.log(tagArray);
 
     try {
       const response = await fetch('http://localhost:5000/blogs/create', {
@@ -141,7 +139,6 @@ const CreateBlog = () => {
       const data = await response.json();
       if (response.ok) {
         setSuccessMessage("Blog published successfully!");
-        // Reset form fields after successful post
         setTitle("");
         setDescription("");
         setContent("");

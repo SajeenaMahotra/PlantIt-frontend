@@ -21,7 +21,6 @@ const Search = () => {
   const fetchRecommendations = async () => {
     try {
       const response = await axiosInstance.get(`http://localhost:5000/blogrecommendations/recommendations/${userId}`);
-      // console.log("Recommended Blogs API Response:", response.data);
       setRecommendedBlogs(response.data);  
     } catch (error) {
       console.error('Error fetching recommendations:', error);

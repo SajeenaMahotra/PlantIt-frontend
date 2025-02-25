@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useHistory  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../api/axios'; 
 import './UserProfile.css';
 
 
-const UserProfile = () => {
+const UserProfile = ({ handleAccountDeletion }) => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: '',
@@ -88,6 +88,43 @@ const UserProfile = () => {
     }
 };
 
+const handleDeleteAccount = async () => {
+    // Show a confirmation box to the user
+    const confirmation = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+    
+    if (confirmation) {
+      try {
+        // Make a DELETE request to your backend API
+        const response = await axiosInstance.delete(`users/delete/${userId}`,{
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const data = response.data;
+        
+        if (response.status===200) {
+          // Clear user data from localStorage and sessionStorage
+          localStorage.removeItem("userId");
+          localStorage.removeItem("token");
+          localStorage.removeItem("role");
+          sessionStorage.removeItem("userId");
+          sessionStorage.removeItem("token");
+          sessionStorage.removeItem("role");
+          handleAccountDeletion();
+          alert("Account deleted successfully");
+          navigate('/');
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        console.log(error)
+        alert("An error occurred while deleting your account. Please try again.");
+      }
+    }
+};
+  
   return (
     <div className="userprofile-container">
       <div className="userprofile-info">
@@ -119,7 +156,8 @@ const UserProfile = () => {
             )}
       </div>
       <button className="button-update"  onClick={handleUpdateProfile}>Update</button>
-      <button className="button-update" onClick={() => setIsModalOpen(true)}>Change Password</button>
+      <button className="button-changepassword" onClick={() => setIsModalOpen(true)}>Change Password</button>
+      <button className="button-changepassword" onClick={handleDeleteAccount}> Delete Account</button>
 
       {/* Modal for changing password */}
   {isModalOpen && (
@@ -143,8 +181,7 @@ const UserProfile = () => {
           value={passwordData.newPassword}  
           onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })}  
         />
-        <input
-          type="password"
+        <input type="password"
           placeholder="Confirm New Password"
           value={passwordData.confirmPassword} 
           onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })} 

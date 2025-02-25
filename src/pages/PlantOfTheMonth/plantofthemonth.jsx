@@ -22,7 +22,7 @@ const PlantOfTheMonth = () => {
   }, []);
 
   const sanitizedprocedure = plant ? DOMPurify.sanitize(plant.procedure, {
-    ALLOWED_TAGS: ['strong', 'em', 'u', 'ol', 'li', 'p', 'br', 'span'], // Add tags you want to allow
+    ALLOWED_TAGS: ['strong', 'em', 'u', 'ol', 'li', 'p', 'br', 'span'], 
   }) : '';
   
   return (

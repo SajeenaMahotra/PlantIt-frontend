@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import DOMPurify from "dompurify";
-import "react-quill/dist/quill.snow.css"; // Import styles for ReactQuill
+import "react-quill/dist/quill.snow.css"; 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./addplantofthemonth.css";
@@ -12,7 +12,7 @@ const AddPlantOfTheMonth = () => {
   const [procedure, setProcedure] = useState("");
   const [month, setMonth] = useState("");
   const [image, setImage] = useState(null);
-  const [imageFile, setImageFile] = useState(""); // Store uploaded file name
+  const [imageFile, setImageFile] = useState(""); 
   const [publishCode, setPublishCode] = useState("");
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
@@ -29,7 +29,7 @@ const AddPlantOfTheMonth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Sanitize the procedure content
+    
     const sanitizedProcedure = DOMPurify.sanitize(procedure);
 
     const formData = new FormData();
@@ -42,7 +42,7 @@ const AddPlantOfTheMonth = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/potm/plantofthemonth", // Ensure this URL is correct
+        "http://localhost:5000/potm/plantofthemonth", 
         formData,
         {
           headers: {
@@ -53,12 +53,12 @@ const AddPlantOfTheMonth = () => {
       setSuccessMessage("Plant of the Month Published successfully")
       console.log("Plant of the Month created:", response.data);
       setTitle("");
-      setDescription("");
-      setContent("");
-      setCategory("");
-      setTags("");
+      setSummary("");
+      setProcedure("");
+      setMonth("");
       setImage(null);
       setImageFile(null);
+      setPublishCode("")
     } catch (error) {
       alert("Error creating Plant of the Month:", error);
       if (error.response) {

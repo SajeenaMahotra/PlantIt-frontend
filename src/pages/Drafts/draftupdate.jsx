@@ -4,7 +4,7 @@ import axiosInstance from "../../api/axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import DOMPurify from "dompurify";
-import "./draftupdate.css"; // Reuse styles from CreateBlog
+import "./draftupdate.css"; 
 
 const DraftUpdate = () => {
   const { id } = useParams();
@@ -28,7 +28,7 @@ const DraftUpdate = () => {
       return;
     }
   
-    // Split tags into an array, trim them, and remove empty entries
+  
     const tagArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
   
     if (tagArray.length === 0) {
@@ -43,7 +43,7 @@ const DraftUpdate = () => {
     formData.append("description", description);
     formData.append("content", content);
     formData.append("category", category);
-    formData.append("tags", tagArray); // No need to stringify, assuming backend expects an array
+    formData.append("tags", tagArray); 
     formData.append("status", "draft"); 
   
     if (imageFile) formData.append("image", imageFile);
@@ -67,7 +67,7 @@ const DraftUpdate = () => {
     }
   };
 
-  // Fetch blog details
+  
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {
@@ -82,7 +82,7 @@ const DraftUpdate = () => {
           setDescription(data.description);
           setContent(data.content);
           setCategory(data.category);
-          setTags(Array.isArray(data.tags) ? data.tags.join(", ") : "");// Convert array to comma-separated string
+          setTags(Array.isArray(data.tags) ? data.tags.join(", ") : "");
 
           if (data.image_path){
             setPreviewImage (`http://localhost:5000${data.image_path.startsWith("/") ? data.image_path : `/${data.image_path}`}`);
@@ -97,16 +97,16 @@ const DraftUpdate = () => {
     fetchBlogDetails();
   }, [id]); 
 
-  // Handle Image Upload
+ 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreviewImage(reader.result);
-        setImageFile(file); // Set the image file
+        setImageFile(file); 
       };
-      reader.readAsDataURL(file); // Read the file as Data URL
+      reader.readAsDataURL(file); 
     }
 };
 
@@ -117,10 +117,10 @@ const DraftUpdate = () => {
           return;
       }
     
-      // Split tags into an array and trim them
+      
       const tagArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
       
-      // Check if there is at least one valid tag
+      
       if (tagArray.length === 0) {
         alert("At least one tag is required.");
         return;
@@ -136,11 +136,11 @@ const DraftUpdate = () => {
         formData.append("description", description);
         formData.append("content", content);
         formData.append("category", category);
-        formData.append("tags", JSON.stringify(tagArray)); // Stringify the tags array
+        formData.append("tags", JSON.stringify(tagArray)); 
         formData.append("status", "published"); 
         if (imageFile) formData.append("image", imageFile); 
         
-        console.log(tagArray); // Log the tags array
+        console.log(tagArray); 
     
         try {
           const response = await fetch(`http://localhost:5000/blogs/${id}`, {
@@ -155,7 +155,6 @@ const DraftUpdate = () => {
           const data = await response.json();
           if (response.ok) {
             setSuccessMessage("Blog published successfully!");
-            // Reset form fields after successful post
             setTitle("");
             setDescription("");
             setContent("");
@@ -173,7 +172,7 @@ const DraftUpdate = () => {
     };
 
     const handleCancel = () => {
-        navigate("/drafts"); // Redirect to blog list
+        navigate("/drafts"); 
       };
   
 

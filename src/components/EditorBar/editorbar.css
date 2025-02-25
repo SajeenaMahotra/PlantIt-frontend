@@ -8,7 +8,7 @@
     padding: 10px 20px;
     background: #ECF4E9;
     position: relative;
-    z-index: 1000; /* Ensures it stays above other content */
+    z-index: 1000; 
 }
 
 .menu-img {
@@ -32,7 +32,7 @@
     padding: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    z-index: 999; /* Keeps menu above other elements */
+    z-index: 999; 
 }
 
 .menu span {

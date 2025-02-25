@@ -9,9 +9,9 @@ const Home = ({ isLoggedIn, setShowSignup }) => {
 
   const handleBoxClick = (path) => {
     if (isLoggedIn) {
-      navigate(path); // Navigate to the respective page if logged in
+      navigate(path); 
     } else {
-      setShowSignup(true); // Show Signup modal if not logged in
+      setShowSignup(true); 
     }
   };
 
@@ -20,7 +20,7 @@ const Home = ({ isLoggedIn, setShowSignup }) => {
       try {
         const response = await axiosInstance.get("/potm/plantofthemonth");
         if (response.data && response.data.imageUrl) {
-          setPlantImage(response.data.imageUrl); // Store image URL
+          setPlantImage(response.data.imageUrl); 
         }
       } catch (error) {
         console.error("Error fetching Plant of the Month:", error);

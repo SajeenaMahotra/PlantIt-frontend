@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import DraftCard from "../Drafts/draftcard";  
-import "./yourdraft.css";  // Import CSS
+import "./yourdraft.css";  
 
 const DraftsPage = () => {
     const [drafts, setDrafts] = useState([]);
@@ -25,7 +25,7 @@ const DraftsPage = () => {
 
     const handleDelete = async (id) => {
         try {
-            const token = sessionStorage.getItem("token");  // Retrieve token from sessionStorage or localStorage
+            const token = sessionStorage.getItem("token");  
             await axios.delete(`http://localhost:5000/blogs/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,

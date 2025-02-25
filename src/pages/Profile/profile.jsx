@@ -44,7 +44,7 @@ const Profile = ({ setIsLoggedIn }) => {
     <div className="profile-container">
       <h1 className="profile-title">Your PlantIt Profile </h1>
 
-       {/* Display saved blogs */}
+     
        <div className="saved-blogs-section">
         <h2>Saved Blogs</h2>
         <div className="saved-blogs-list">
@@ -69,7 +69,7 @@ const Profile = ({ setIsLoggedIn }) => {
       </div>
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
       <button className="editprofile-btn" onClick={handleEditProfile}>Edit Profile</button>
-      <div className="profile-floating-plus">+</div>
+      
       </div>
   );
 };

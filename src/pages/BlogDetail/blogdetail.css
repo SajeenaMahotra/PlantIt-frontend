@@ -9,8 +9,8 @@
     color: white;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 10px;    /* Adjust font size to make it smaller */
-    display: inline-block; /* Ensures the box size fits the content */ 
+    font-size: 10px;    
+    display: inline-block; 
 }
   
 .blog-title {

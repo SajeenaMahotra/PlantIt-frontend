@@ -11,7 +11,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/blogs/published"); // Adjust the URL if necessary
+        const response = await axios.get("http://localhost:5000/blogs/published"); 
         console.log(response.data); 
         setBlogs(response.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const Blog = () => {
             {blogs.map((blog) => (
               <BlogCard
                 key={blog.id}
-                id={blog.id}  // Pass the id to the BlogCard
+                id={blog.id}  
                 image={blog.imageUrl}
                 title={blog.title}
                 description={blog.description}
